@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARBOL DE NAVIDAD</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <h1>bolas del arbol</h1>
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="25" fill="red" />
+    </svg>
+
+    <h2>VARIOS TAMAÑOS DE BOLAS, EJERCICIO</h2>
+    <h3>primer circulo</h3>
+    <svg
+      id="negro"
+      class="negroni"
+      width="100"
+      height="100"
+      viewBox="0 0 200 200"
+    >
+      <circle cx="100" cy="100" r="100" />
+    </svg>
+    <h3>segundo circulo probando el contorno</h3>
+    <svg id="rojo" width="300" height="300" viewBox="0 0 200 210">
+      <circle
+        cx="100"
+        cy="100"
+        r="100"
+        stroke="red"
+        stroke-width="3"
+        fill="blue"
+      />
+      <!-- dentro del circle tenemos el cx que nos da la orientacion en el eje x, el cy en el eje y el r que es el radio del circulo, el stroke que es el color del borde, el stroke-width nos da el ancho del borde y por ultimo el fill que en este caso al poner blue nos pone un relleno azul, si ponemos none obviamente no vamos a tener relleno y solo vamos a tener el contorno-->
+    </svg>
+
+    <h3>hacemos un rectangulo</h3>
+    <svg width="300" height="200">
+      <rect
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        stroke="blue"
+        stroke-width="3"
+        fill="none"
+      />
+      <!-- dentro del rectangulo tenemos el x que nos da la orientacion en el eje x, el y en el eje y el width que es el ancho del rectangulo, el height que es el alto del rectangulo, el stroke que es el color del borde, el stroke-width nos da el ancho del borde y por ultimo el fill que en este caso al poner none obviamente no vamos a tener relleno-->
+    </svg>
+
+    <h2>VAMOS A EMPEZAR A DIBUJAR LA BOLA DE NAVIDAD</h2>
+    <h3>Cómo dibujar un adorno de Navidad</h3>
+    <p>
+      Empecemos con un simple adorno de Navidad. Aquí sólo usamos formas
+      simples, un rectángulo y dos círculos. Tenga en cuenta que el origen del
+      sistema de coordenadas está en el centro de la imagen.
+    </p>
+    <p>
+      Primero, definimos la parte principal del adorno de Navidad, dibujar un
+      circle. Para dibujar un círculo establecemos su posición de centro ( cxy
+      cy) y el radio con la rpropiedad.
+    </p>
+    <p>
+      También tenemos atributos de presentación que estilo nuestras formas.
+      Similar a la background-color propiedad en CSS, establecemos el color para
+      la forma con el fill atributo.
+    </p>
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <circle cx="0" cy="20" r="70" fill="#D1495B" />
+    </svg>
+    <br />
+    <hr />
+    <p>
+      Luego dibujamos un rectángulo como una pequeña gorra en la parte superior
+      del adorno de Navidad con el rect elemento. En este caso, tenemos que
+      establecer la posición superior izquierda del rectángulo y su tamaño.
+      Usamos el fill atributo de la misma manera que lo hicimos con el círculo.
+    </p>
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <circle cx="0" cy="20" r="70" fill="#D1495B" />
+      <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+    </svg>
+
+    <hr />
+    <p>
+      Finalmente, añadimos otro círculo como una percha encima de estos. Tenga
+      en cuenta que usamos el mismo circle de elemento, pero con diferentes
+      atributos. Colgamos la propiedad de llenado a "none". y establecemos un
+      borde para la forma con el strokey stroke-width propiedades.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <circle cx="0" cy="20" r="70" fill="#D1495B" />
+      <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+      <circle
+        cx="0"
+        cy="-75"
+        r="12"
+        fill="none"
+        stroke="#F79257"
+        stroke-width="2"
+      />
+    </svg>
+    <p>El código final de la bola de navidad seria este</p>
+    <img
+      src="imagenes/codigo bola de navidad.png"
+      alt="codigo bola de navidad"
+    />
+
+    <p>Si queres copiar el codigo aca te lo dejo</p>
+
+    <pre>
+    &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;circle cx="0" cy="20" r="70" fill="#D1495B" /&gt;
+      &lt;rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" /&gt;
+      &lt;circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2" /&gt;
+    &lt;/svg&gt;
+  </pre
+    >
+    <p>
+      Ya dibujamos nuestra primera bola de navidad con una imagen svg, ahora
+      vamos a ver cosas mas complicadas
+    </p>
+  </body>
+</html>
