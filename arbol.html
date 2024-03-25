@@ -4,8 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
     <h1>ARBOL</h1>
+    <h2>Dia 2: Cómo construir un árbol de Navidad con SVG</h2>
+
+    <h4>Cómo usar el polygon elemento</h4>
+
+    <p>
+      Siempre podemos usar formas básicas para montar nuestras imágenes. A
+      polygon es la forma más fácil de dibujar una forma de forma libre. Los
+      polígonos tienen un points propiedad que establece una lista de
+      coordenadas que están conectadas con líneas rectas.
+    </p>
+    <p>
+      Podemos la corona del árbol de tres triángulos. Empezamos con el de abajo,
+      y lo agregamos capa por capa.
+    </p>
+
+    <svg widht="200" height="400" viewBox="-100 -200 200 400">
+      <polygon points="0,0 80,120 -80,120" fill="#234236" />
+    </svg>
+
+    <p>Aca tenemos el codigo para verlo</p>
+    <pre>
+    &lt;svg widht="200" height="400" viewBox="-100 -200 200 400"&gt;
+      &lt;polygon points="0,0 80,120 -80,120" fill="#234236"/&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Hicimos la parte de abajo del arbol, ahora vamos a hacer la segunda parte
+      o la parte del medio con un color mas suave
+    </p>
+
+    <svg widht="200" height="400" viewBox="-100 -200 200 400">
+      <polygon points="0,0 80,120 -80,120" fill="#234236" />
+      <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+    </svg>
+
+    <p>Aca tenemos el codigo de la segunda parte para verlo</p>
+    <pre>
+    &lt;svg widht="200" height="400" viewBox="-100 -200 200 400"&gt;
+      &lt;polygon points="0,0 80,120 -80,120" fill="#234236"/&gt;
+      &lt;polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>Y para terminar vamos a hacer la parte de arriba del arbol</p>
+    <svg widht="200" height="400" viewBox="-100 -200 200 400">
+      <polygon points="0,0 80,120 -80,120" fill="#234236" />
+      <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+      <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+    </svg>
+
+    <p>
+      Con este codigo vemos terminado las 3 partes de arriba del arbol. Aca
+      tenemos el codigo y nos faltaria solamente ponerle el tronco
+    </p>
+
+    <pre>
+    &lt;svg widht="200" height="400" viewBox="-100 -200 200 400"&gt;
+      &lt;polygon points="0,0 80,120 -80,120" fill="#234236"/&gt;
+      &lt;polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" /&gt;
+      &lt;polygon points="0,-80 40,0 -40,0" fill="#38755B" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Por ultimo como dijimos mas arriba vamos a ponerle un tronco al arbol
+      haciendo un rectangulo
+    </p>
+
+    <svg widht="200" height="400" viewBox="-100 -200 200 400">
+      <polygon points="0,0 80,120 -80,120" fill="#234236" />
+      <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+      <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+      <rect x="-20" y="120" width="40" height="30" fill="brown" />
+    </svg>
+
+    <p>Aca tenemos el codigo para verlo</p>
+
+    <pre>
+    &lt;svg widht="200" height="400" viewBox="-100 -200 200 400"&gt;
+      &lt;polygon points="0,0 80,120 -80,120" fill="#234236"/&gt;
+      &lt;polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" /&gt;
+      &lt;polygon points="0,-80 40,0 -40,0" fill="#38755B" /&gt;
+      &lt;rect x="-20" y="120" width="40" height="30" fill="brown" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <a href="index.html"><button>DIA 1</button></a>
+    <a href="dia3"><button>DIA 3</button></a>
   </body>
 </html>

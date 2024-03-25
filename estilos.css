@@ -16,3 +16,12 @@
   border-radius: solid 2px;
   border-color: blue;
 }
+
+svg {
+  border: 1px dashed gray;
+}
+
+pre {
+  border: 3px dashed gray;
+  color: red;
+}
