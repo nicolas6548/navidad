@@ -3,10 +3,290 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>IMAGENES EN SVG</title>
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
+    <h2>Día 5: Cómo dibujar imagenes básicas con SVG</h2>
+
+    <p>
+      Una vez que cubrimos las formas básicas, es hora de pasar a la path
+      elemento. El camino es el elemento SVG más potente. Podemos definir casi
+      cualquier cosa con rutas y si abres cualquier archivo SVG, verás rutas.
+    </p>
+
+    <p>
+      La forma de un camino se define por la d atributo. Aquí definimos varios
+      comandos de dibujo. Un comando siempre comienza con una letra que define
+      el tipo de comando y termina con una coordenada.
+    </p>
+    <p>
+      Aquí sólo tenemos los dos comandos más básicos, pasar y línea a. El
+      comando de movimiento mueve el cursor a un punto sin dibujar una línea y
+      el comando de línea traza una línea recta desde el punto anterior. Un
+      comando siempre continúa el mando anterior. Cuando trazamos una línea sólo
+      definimos el punto final. El punto de partida será el end point anterior
+      de comandos.
+    </p>
+
+    <h4>Icono de menú de hamburguesa</h4>
+
+    <p>
+      Antes de llegar al ejemplo de flecha, vamos a dibujar un simple icono de
+      menú de hamburguesas. Se dibujamos tres líneas en el mismo camino con el
+      traslado a (M) y línea a (L) comandos. Primero, nos movemos al comienzo de
+      la línea superior (M -40, -40) y trazar una línea hasta su fin (L 40,
+      -40).
+    </p>
+
+    <svg width="200" heigt="200" viewbox="-100 -100 200 200">
+      <path
+        d="M -40, -40 L 40, -40 "
+        stroke="#333333"
+        stroke-width="25"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <p>
+      Luego continuamos y dibujamos más líneas de la misma manera. Lo que es
+      genial acerca de los caminos, es que no tienen que ser continuos. Podemos
+      tener varios comandos de movimiento dentro del mismo camino. Las comas
+      entre las coordenadas X e Y son opcionales. Nos los saltamos esta vez.
+    </p>
+
+    <svg width="200" heigt="200" viewbox="-100 -100 200 200">
+      <path
+        d="
+        M -40, -40 
+        L 40, -40 
+        M -40 0
+        L 40 0
+        M -40 40
+        L 40 40"
+        stroke="#333333"
+        stroke-width="25"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <p>
+      Aca esta el codigo HTML, ponemos solo el ultimo codigo porque el codigo de
+      la primer linea esta incluida en este codigo
+    </p>
+
+    <pre>
+      &lt;svg width="200" heigt="200" viewbox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+          M -40, -40 
+          L 40, -40 
+          M -40 0
+          L 40 0
+          M -40 40
+          L 40 40"
+          stroke="#333333"
+          stroke-width="25"
+          stroke-linecap="round"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      En el codigo se puede observar que la primer linea esta separada por
+      comas, pero las segundas 2 lineas no tienen separacion
+    </p>
+
+    <h4>Para todos los romanticos. Icono de CORAZON</h4>
+
+    <p>
+      Aqui está otro ejemplo hecho con un movimiento al comando y dos lineas a
+      los comandos
+    </p>
+
+    <svg width="200" heigt="200" viewbox="-100 -100 200 200">
+      <path
+        d="
+            M -30 -20
+            L 0 10
+            L 30 -20"
+        fill="none"
+        stroke="black"
+        stroke-width="80"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <p>El codigo del CORAZON es el siguiente</p>
+
+    <pre>
+      &lt;svg width="200" heigt="200" viewbox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+            M -30 -20
+            L 0 10
+            L 30 -20"
+          fill="none"
+          stroke="black"
+          stroke-width="80"
+          stroke-linecap="round"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Pero como formamos el CORAZON???? vamos a modificar la propiedad
+      stroke-width y veamos que pasa
+    </p>
+
+    <svg width="200" heigt="200" viewbox="-100 -100 200 200">
+      <path
+        d="
+            M -30 -20
+            L 0 10
+            L 30 -20"
+        fill="none"
+        stroke="black"
+        stroke-width="10"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <p>
+      Como vemos en la imagen, el corazon es solo dos lineas, que al darle
+      grosor con stroke-width nos da la forma de corazon, para que se entienda
+      mejor aca esta el codigo de las dos lineas o del corazon flaco
+    </p>
+
+    <pre>
+      &lt;svg width="200" heigt="200" viewbox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+            M -30 -20
+            L 0 10
+            L 30 -20"
+          fill="none"
+          stroke="black"
+          stroke-width="10"
+          stroke-linecap="round"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <h4>Icono de flecha</h4>
+
+    <p>
+      Entonces, para llegar a nuestro ejemplo de hoy, podemos dibujar una flecha
+      de una manera muy similar. Empezamos con una linea en el medio, luego
+      continuamos la línea para trazar el ala superior
+    </p>
+
+    <svg width="200" height="200" viewbox="-100 -100 200 200">
+      <path
+        d="
+        M -70 0
+        L 70 0
+        L 30 -50"
+        fill="none"
+        stroke="#D1495B"
+        stroke-width="25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+    <p>Aca tenemos el codigo HTML</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewbox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+        M -70 0
+        L 70 0
+        L 30 -50"
+          fill="none"
+          stroke="#D1495B"
+          stroke-width="25"
+          stroke-linecap="round"
+          stroke-linejoin="round"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Como podres notar en el ejemplo anterior, también teníamos un
+      stroke-linejoin propiedad para hacer la junta redondeada. Funciona de una
+      manera similar a stroke-linecap pero eso sólo afecta al final de las
+      líneas. Sin esa propiedad, la misma línea se vería de la siguiente manera.
+    </p>
+
+    <svg width="200" height="200" viewbox="-100 -100 200 200">
+      <path
+        d="
+        M -70 0
+        L 70 0
+        L 30 -50"
+        fill="none"
+        stroke="#D1495B"
+        stroke-width="25"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <p>Aca tenes el codigo HTML para que puedas comparar</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewbox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+        M -70 0
+        L 70 0
+        L 30 -50"
+          fill="none"
+          stroke="#D1495B"
+          stroke-width="25"
+          stroke-linecap="round"
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Luego podemos terminar la línea con movernos al final de la línea
+      horizontal de nuevo, y trazar una línea recta hacia abajo para dibujar el
+      ala inferior de la flecha. Usted puede notar que en la parte inferior de
+      esta y otras páginas en el botón de navegación incluimos un SVG similar.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path
+        d="
+        M -70 0 
+        L 70 0 
+        L 30 -50 
+        M 70 0 
+        L 30 50"
+        fill="none"
+        stroke="#D1495B"
+        stroke-width="25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+    <p>Y aca tenemos el codigo final del HTML para que lo disfruten</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+        &lt;path
+          d="
+        M -70 0 
+        L 70 0 
+        L 30 -50 
+        M 70 0 
+        L 30 50"
+          fill="none"
+          stroke="#D1495B"
+          stroke-width="25"
+          stroke-linecap="round"
+          stroke-linejoin="round"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <a href="dia4.html"><button>DIA 4</button></a>
     <a href="dia6.html"><button>DIA 6</button></a>
