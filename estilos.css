@@ -16,3 +16,62 @@
   border-radius: solid 2px;
   border-color: blue;
 }
+
+svg {
+  border: 1px dashed gray;
+}
+
+pre {
+  border: 3px dashed gray;
+  color: red;
+}
+
+.head {
+  fill: #cd803d;
+}
+
+.mouth {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.limb {
+  stroke: #cd803d;
+}
+
+.limb2 {
+  stroke: #cd803d;
+  stroke-width: 35px;
+  stroke-linecap: round;
+}
+
+.house {
+  stroke: black;
+  stroke-width: 2px;
+  fill: white;
+}
+
+.house .roof {
+  fill: none;
+  stroke: #d1495b;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
+
+.house .door {
+  fill: #d1495b;
+}
+
+.house .stair {
+  fill: gray;
+}
+
+.house .window {
+  fill: #fdea96;
+}
+
+.house .window-sill {
+  fill: #d1495b;
+  stroke-linecap: round;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <h2>Día 4: Cómo construir una casa con SVG</h2>
+
+    <p>
+      En este ejemplo, combinamos todo lo que aprendí hasta ahora. Aquí usamos
+      círculos, rectángulos, líneas, polilíneas y polígonos.
+    </p>
+    <p>
+      Empezamos con el frente en sí. Tenga en cuenta que no sólo tenemos una
+      clase en el elemento de la pared, sino también en todo el SVG
+    </p>
+
+    <svg class="house" width="200" height="200" viewBox="-100 -100 200 200">
+      <polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+    </svg>
+
+    <p>Aca tenemos el codigo para verlo</p>
+
+    <pre>
+      &lt;svg class="house" width="200" height="200" viewBox="-100 -100 200 200"&gt;
+        &lt;polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>Como pusimos mas arriba vemos el codigo CSS que toma todo el SVG</p>
+
+    <pre>
+      .house {
+        stroke: black;
+        stroke-width: 2px;
+        fill: white;
+      }
+    </pre>
+
+    <p>
+      Luego le agregamos un techo encima. Esto es lo único que es nuevo aquí.
+      Usamos un polyline. La diferencia entre una polilínea y un polígono es que
+      un polígono siempre se cerrará, y la polilínea permanecerá abierta. Tenga
+      en cuenta que estamos usando el stroke-linecap de nuevo como lo hicimos
+      con el ejemplo de la figura de pan de jengibre.
+    </p>
+
+    <svg class="house" width="200" height="200" viewBox="-100 -100 200 200">
+      <polyline class="roof" points="-75,-8 0,-78 75,-8"
+    </svg>
+
+    <p>Aca podemos ver el codigo HTML</p>
+
+    <pre>
+      &lt;svg class="house" width="200" height="200" viewBox="-100 -100 200 200"&gt;
+        &lt;polyline class="roof" points="-75,-8 0,-78 75,-8"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>Y aca el codigo CSS</p>
+
+    <pre>
+      .house .roof {
+        fill: white;
+        stroke: #d1495b;
+        stroke-width: 10px;        
+        stroke-linecap: round;
+      }
+    </pre>
+
+    <p>
+      Luego seguimos añadiendo elementos sencillos para la puerta, las ventanas
+      y las escaleras. El código final de la imagen será el siguiente:
+    </p>
+    <p>
+      Primero vamos a mostrar la casa sin CSS y el codigo HTML, luego vamos a
+      ver la casa terminada con el codigo HTML y CSS
+    </p>
+
+    <svg class="house" width="200" height="200" viewBox="-100 -100 200 200">
+      <polygon class="wall1" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+      <!-- paredes -->
+      <polyline class="roof1" points="-75,-8 0,-78 75,-8" />
+      <!-- techo -->
+
+      <rect class="door1" x="-45" y="10" width="30" height="60" rx="2" />
+      <!-- puerta -->
+      <circle class="door-knob1" cx="-35" cy="40" r="2" />
+      <!-- manija de la puerta -->
+      <rect class="stair1" x="-47" y="70" width="34" height="5" />
+      <rect class="stair1" x="-49" y="75" width="38" height="5" />
+      <!-- escalones -->
+
+      <rect class="window1" x="5" y="15" width="40" height="35" rx="5" />
+      <!-- ventana -->
+      <line x1="5" y1="32.5" x2="45" y2="32.5" />
+      <line x1="25" y1="15" x2="25" y2="50" />
+      <rect class="window-sill1" x="2" y="48" width="46" height="5" rx="5" />
+      <!-- rectangulo debajo de la ventana -->
+
+      <circle class="window1" cx="0" cy="-25" r="15" />
+      <!-- ventana redonda -->
+      <line x1="-15" y1="-25" x2="15" y2="-25" />
+      <ine x1="0" y1="-40" x2="0" y2="-10" />
+    </svg>
+
+    <p>Aca el codigo HTML</p>
+
+    <pre>
+      &lt;svg class="house" width="200" height="200" viewBox="-100 -100 200 200"&gt;
+        &lt;polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80" /&gt;
+        &lt;!-- paredes --&gt;
+        &lt;polyline class="roof" points="-75,-8 0,-78 75,-8" /&gt;
+        &lt;!-- techo --&gt;
+
+        &lt;rect class="door" x="-45" y="10" width="30" height="60" rx="2" /&gt;
+        &lt;!-- puerta --&gt;
+        &lt;circle class="door-knob" cx="-35" cy="40" r="2" /&gt;
+        &lt;!-- manija de la puerta --&gt;
+        &lt;rect class="stair" x="-47" y="70" width="34" height="5" /&gt;
+        &lt;rect class="stair" x="-49" y="75" width="38" height="5" /&gt;
+        &lt;!-- escalones --&gt;
+
+        &lt;rect class="window" x="5" y="15" width="40" height="35" rx="5" /&gt;
+        &lt;!-- ventana --&gt;
+        &lt;line x1="5" y1="32.5" x2="45" y2="32.5" /&gt;
+        &lt;line x1="25" y1="15" x2="25" y2="50" /&gt;
+        &lt;rect class="window-sill" x="2" y="48" width="46" height="5" rx="5" /&gt;
+        &lt;!-- rectangulo debajo de la ventana --&gt;
+
+        &lt;circle class="window" cx="0" cy="-25" r="15" /&gt;
+        &lt;!-- ventana redonda --&gt;
+        &lt;line x1="-15" y1="-25" x2="15" y2="-25" /&gt;
+        &lt;ine x1="0" y1="-40" x2="0" y2="-10" /&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Ahi tenemos la casa con CSS, y ahora vamos a vean la diferencia entre
+      ambas casas
+    </p>
+
+    <svg class="house" width="200" height="200" viewBox="-100 -100 200 200">
+      <polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+      <!-- paredes -->
+      <polyline class="roof" points="-75,-8 0,-78 75,-8" />
+      <!-- techo -->
+
+      <rect class="door" x="-45" y="10" width="30" height="60" rx="2" />
+      <!-- puerta -->
+      <circle class="door-knob" cx="-35" cy="40" r="2" />
+      <!-- manija de la puerta -->
+      <rect class="stair" x="-47" y="70" width="34" height="5" />
+      <rect class="stair" x="-49" y="75" width="38" height="5" />
+      <!-- escalones -->
+
+      <rect class="window" x="5" y="15" width="40" height="35" rx="5" />
+      <!-- ventana -->
+      <line x1="5" y1="32.5" x2="45" y2="32.5" />
+      <line x1="25" y1="15" x2="25" y2="50" />
+      <rect class="window-sill" x="2" y="48" width="46" height="5" rx="5" />
+      <!-- rectangulo debajo de la ventana -->
+
+      <circle class="window" cx="0" cy="-25" r="15" />
+      <!-- ventana redonda -->
+      <line x1="-15" y1="-25" x2="15" y2="-25" />
+      <ine x1="0" y1="-40" x2="0" y2="-10" />
+    </svg>
+
+    <p>Y este es el codigo CSS para completar toda la casa</p>
+
+    <pre>
+      .house {
+        stroke: black;
+        stroke-width: 2px;
+        fill: white;
+      }
+
+      .house .roof {
+        fill: none;
+        stroke: #d1495b;
+        stroke-width: 10px;
+        stroke-linecap: round;
+      }
+
+      .house .door {
+        fill: #d1495b;
+      }
+
+      .house .stair {
+        fill: gray;
+      }
+
+      .house .window {
+        fill: #fdea96;
+      }
+
+      .house .window-sill {
+        fill: #d1495b;
+        stroke-linecap: round;
+      }
+    </pre>
+
+    <p>Nos vemos en el dia 5</p>
+
+    <a href="dia3.html"><button>DIA 3</button></a>
+    <a href="dia5.html"><button>DIA 5</button></a>
+  </body>
+</html>

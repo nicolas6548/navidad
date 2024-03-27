@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <h2>Dia 3: Cómo hacer una figura de pan de jengibre con SVG</h2>
+
+    <h4>Mosción de propiedades de estilo a CSS</h4>
+
+    <p>
+      Dado que nuestro SVG está viviendo dentro de un archivo HTML ahora,
+      podemos asignar clases de CSS a cada elemento y mover algunos de los
+      atributos a CSS. Sin embargo, sólo podemos mover los atributos de la
+      presentación. Atributos de posición y atributos que definene las formas
+      tienen que mantenerse en HTML. Pero los colores, los trazos y los
+      atributos de fuente se pueden mover a css
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <circle class="head" cx="0" cy="-50" r="30" ; />
+    </svg>
+
+    <p>Aca esta el codigo del circulo inicial</p>
+
+    <pre>
+    &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;circle class="head" cx="0" cy="-50" r="30" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>El codigo del CSS es:</p>
+
+    <pre>
+      .head {
+        fill: #cd803d;
+      }
+    </pre>
+
+    <h4>Lineas redondeadas</h4>
+
+    <p>
+      Ya vimos el filly algunos de los stroke propiedades, pero aquí está otra
+      propiedad de estilo. El stroke-linecap. Esto puede hacer que nuestra tapa
+      de línea redondee. Tenga en cuenta que las piernas y los brazos son líneas
+      simples aquí.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <line class="limb" x1="-40" y1="-10" x2="40" y2="-10" />
+      <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
+      <line class="limb" x1="25" y1="50" x2="0" y2="-15" />
+    </svg>
+
+    <p>El codigo para hacer las lineas es el siguiente</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;line class="limb" x1="-40" y1="-10" x2="40" y2="-10" /&gt;
+      &lt;line class="limb" x1="-25" y1="50" x2="0" y2="-15" /&gt;
+      &lt;line class="limb" x1="25" y1="50" x2="0" y2="-15" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>El codigo del CSS es:</p>
+
+    <pre>
+      .limb {
+        stroke: #cd803d;
+      }
+    </pre>
+
+    <p>
+      Pero al establecer un ancho de trazo grueso y una tapa de linea redonda
+      podemos dar forma a piernas y brazos para nuestra figura.
+    </p>
+
+    <p>
+      El codigo en HTML es el mismo, no cambia porque no agregamos nada nuevo,
+      lo que si cambia es el codigo CSS porque vamos a hacer mas gruesas las
+      piernas y los brazos y vamos a redondear las puntas, por ese motivo aca
+      solo muestro el codigo CSS.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <line class="limb2" x1="-40" y1="-10" x2="40" y2="-10" />
+      <line class="limb2" x1="-25" y1="50" x2="0" y2="-15" />
+      <line class="limb2" x1="25" y1="50" x2="0" y2="-15" />
+    </svg>
+
+    <pre>
+      .limb {
+        stroke: #cd803d;
+        stroke-width: 35px;
+        stroke-linecap: round;
+      }
+    </pre>
+
+    <h4>Rectángulos redondeados</h4>
+
+    <p>
+      Además, nota la rx propiedad en el rectángulo que define la boca. Esto
+      hará que los bordes redondeen. Es similar a la border-radius propiedad
+      para elementos HTML regulares.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <circle class="head" cx="0" cy="-50" r="30" ; />
+      <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+    </svg>
+
+    <p>El codigo HTML de la cabeza y boca es el siguiente</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;circle class="head" cx="0" cy="-50" r="30" ; /&gt;
+      &lt;rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Sin estilos la boca queda toda negra, entonces aca tienen el codigo CSS
+      para darle forma y color a la boca.
+    </p>
+
+    <pre>
+      .mouth {
+        fill: none;
+        stroke: white;
+        stroke-width: 2px;
+      }
+    </pre>
+
+    <p>
+      Para terminar la figura de pan de jengibre le vamos a agregar ojos y
+      botones, los cuales van a tener su codigo HTML y su codigo CSS que se
+      muestran a continuacion de la figura
+    </p>
+
+    <svg
+      class="gingerbread"
+      width="200"
+      height="200"
+      viewBox="-100 -100 200 200"
+    >
+      <circle class="head" cx="0" cy="-50" r="30" />
+      <!--esta es la cabeza  -->
+
+      <circle class="eye" cx="-12" cy="-55" r="3" />
+      <circle class="eye" cx="12" cy="-55" r="3" />
+      <!-- estos son los ojos -->
+
+      <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+      <!-- esta es la boca -->
+
+      <line class="limb2" x1="-40" y1="-10" x2="40" y2="-10" />
+      <line class="limb2" x1="-25" y1="50" x2="0" y2="-15" />
+      <line class="limb2" x1="25" y1="50" x2="0" y2="-15" />
+      <!-- las piernas y los brazos -->
+
+      <circle class="button" cx="0" cy="-10" r="5" />
+      <circle class="button" cx="0" cy="10" r="5" />
+      <!-- los ojos -->
+    </svg>
+
+    <p>
+      De esta forma terminamos el HOMBRE DE JENGIBRE, primero vamos a ver el
+      codigo HTML.
+    </p>
+
+    <pre>
+      &lt;svg&gt;
+      &lt;class="gingerbread"&gt;
+      &lt;width="200"&gt;
+      &lt;height="200"&gt;
+      &lt;viewBox="-100 -100 200 200"&gt;
+    
+      &lt;circle class="head" cx="0" cy="-50" r="30" /&gt;
+      &lt;!--esta es la cabeza  --&gt;
+
+      &lt;circle class="eye" cx="-12" cy="-55" r="3" /&gt;
+      &lt;circle class="eye" cx="12" cy="-55" r="3" /&gt;
+      &lt;!-- estos son los ojos --&gt;
+
+      &lt;rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" /&gt;
+      &lt;!-- esta es la boca --&gt;
+
+      &lt;line class="limb2" x1="-40" y1="-10" x2="40" y2="-10" /&gt;
+      &lt;line class="limb2" x1="-25" y1="50" x2="0" y2="-15" /&gt;
+      &lt;line class="limb2" x1="25" y1="50" x2="0" y2="-15" /&gt;
+      &lt;!-- las piernas y los brazos --&gt;
+
+      &lt;circle class="button" cx="0" cy="-10" r="5" /&gt;
+      &lt;circle class="button" cx="0" cy="10" r="5" /&gt;
+      &lt;!-- los ojos --&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>El codigo CSS completo es el siguiente.</p>
+
+    <pre>
+      .head {
+        fill: #cd803d;
+      }
+
+      .eye {
+        fill: white;
+      }
+
+      .mouth {
+        fill: none;
+        stroke: white;
+        stroke-width: 2px;
+      }
+
+      .limb {
+        stroke: #cd803d;
+        stroke-width: 35px;
+        stroke-linecap: round;
+      }
+    </pre>
+
+    <p>
+      Este es nuestro querido HOMBRE DE JENGIBRE, espero les sea util la
+      informacion y que jueguen con el codigo ROMPIENDO Y ARREGLANDO que es la
+      mejor forma de aprender.
+    </p>
+
+    <svg
+      class="gingerbread"
+      width="200"
+      height="200"
+      viewBox="-100 -100 200 200"
+    >
+      <circle class="head" cx="0" cy="-50" r="30" />
+      <!--esta es la cabeza  -->
+
+      <circle class="eye" cx="-12" cy="-55" r="3" />
+      <circle class="eye" cx="12" cy="-55" r="3" />
+      <!-- estos son los ojos -->
+
+      <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+      <!-- esta es la boca -->
+
+      <line class="limb2" x1="-40" y1="-10" x2="40" y2="-10" />
+      <line class="limb2" x1="-25" y1="50" x2="0" y2="-15" />
+      <line class="limb2" x1="25" y1="50" x2="0" y2="-15" />
+      <!-- las piernas y los brazos -->
+
+      <circle class="button" cx="0" cy="-10" r="5" />
+      <circle class="button" cx="0" cy="10" r="5" />
+      <!-- los ojos -->
+    </svg>
+
+    <p>Nos vemos en el DIA 4 donde vamos a hacer una casa linda linda linda</p>
+
+    <a href="dia2.html"><button>DIA 2</button></a>
+    <a href="dia4.html"><button>DIA 4</button></a>
+  </body>
+</html>
