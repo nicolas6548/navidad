@@ -7,7 +7,249 @@
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h2>Copo de nieve</h2>
+
+    <h2>Día 7: Cómo reutilizar elementos de imagen con SVG</h2>
+
+    <p>
+      En lugar de repetir el mismo código una y otra vez, también podemos
+      reutilizar elementos de imagen
+    </p>
+
+    <h4>Cómo dibujar un icono del SOL con SVG</h4>
+
+    <p>
+      Dibujamos un simple icono del sol. Empezamos con un elemento de circulo
+      para dibujar el núcheo del sol, y trazamos una línea para trazar un rayo
+      de sol
+    </p>
+
+    <svg width="200" height="200" viewBox="-15 -15 30 30">
+      <circle r="6" />
+      <line
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        x1="0"
+        y1="11"
+        x2="0"
+        y2="14"
+      ></line>
+    </svg>
+
+    <p>El codigo HTML queda de la siguiente manera</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-15 -15 30 30"&gt;
+      &lt;circle r="6" /&gt;
+      &lt;line
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        x1="0"
+        y1="11"
+        x2="0"
+        y2="14"
+      &gt;&lt;/line&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Ahora, una vez que tengamos un rayo, podemos reutilizar el mismo elemento
+      de línea para dibujar a los demás. Podemos darle un rayo a este rayo. Le
+      damos un id y reutilizamos el codigo.
+    </p>
+    <p>
+      Entonces, podemos mover las líneas a su posición correcta con el transform
+      comando de la misma manera que lo hicimos con el ejemplo estrella, excepto
+      que esta vez, aumentamos la rotación en 45 grados por cada rayo.
+    </p>
+
+    <svg width="200" height="200" viewBox="-15 -15 30 30">
+      <circle r="6" />
+
+      <line
+        id="ray"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        x1="0"
+        y1="11"
+        x2="0"
+        y2="14"
+      ></line>
+      <use href="#ray" transform="rotate(45)" />
+      <use href="#ray" transform="rotate(90)" />
+      <use href="#ray" transform="rotate(135)" />
+      <use href="#ray" transform="rotate(180)" />
+      <use href="#ray" transform="rotate(225)" />
+      <use href="#ray" transform="rotate(270)" />
+      <use href="#ray" transform="rotate(315)" />
+    </svg>
+
+    <p>Aca les dejo el codigo HTML</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-15 -15 30 30"&gt;
+      &lt;circle r="6" /&gt;
+
+      &lt;line
+        id="ray"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        x1="0"
+        y1="11"
+        x2="0"
+        y2="14"
+      &gt;&lt;/line&gt;
+      &lt;use href="#ray" transform="rotate(45)" /&gt;
+      &lt;use href="#ray" transform="rotate(90)" /&gt;
+      &lt;use href="#ray" transform="rotate(135)" /&gt;
+      &lt;use href="#ray" transform="rotate(180)" /&gt;
+      &lt;use href="#ray" transform="rotate(225)" /&gt;
+      &lt;use href="#ray" transform="rotate(270)" /&gt;
+      &lt;use href="#ray" transform="rotate(315)" /&gt;
+
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Puede utilizar el icono del Sol de arriba y el icono de la Luna que
+      estamos a punto de cubrir más adelante para crear un botón de conmutación
+      que puede cambiar entre modos brillantes y oscuros. Te dejo un video de
+      youtube para que puedas ver como se hace
+      <a href="https://www.youtube.com/watch?v=GUSUA72t7p0"
+        >Como pasar de a modo NOCTURNO con CSS y JavaScript - Utilizando un
+        boton con SVG</a
+      >
+    </p>
+
+    <h4>Cómo dibujar un copo de nieve con SVG</h4>
+
+    <p>
+      Podemos utilizar la misma técnica para definir una rama de un copo de
+      nieve y luego reutilizarla seis veces para dibujar un copo de nieve.
+    </p>
+    <p>
+      La rama se define como una path. Antes ya cubrimos cómo dibujar caminos
+      básicos. Aquí dibujan la rama de una manera similar. Podemos dibujar una
+      línea simple, la rama principal, usando el movimiento a (M) y línea a (L)
+      comandos:
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path d="M 0 0 L 0 -90" stroke="#E5C39C" stroke-width="5" />
+    </svg>
+
+    <p>El codigo HTML lo ponemos al final.</p>
+    <p>
+      Entonces podemos continuar dibujando, y añadimos una rama lateral
+      agregando otro movimiento y la linea a los comandos
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path
+        d="
+            M 0 0 L 0 -90
+            M 0 -20 L 20 -34"
+        stroke="#E5C39C"
+        stroke-width="5"
+      />
+    </svg>
+
+    <p>
+      Seguimos agregando ramas a la rama principal y el resultado final es el
+      siguiente:
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path
+        d="
+            M 0 0 L 0 -90
+            M 0 -20 L 20 -34
+            M 0 -20 L -20 -34
+            M 0 -40 L 20 -54
+            M 0 -40 L -20 -54
+            M 0 -60 L 20 -74
+            M 0 -60 L -20 -74"
+        stroke="#E5C39C"
+        stroke-width="5"
+      />
+    </svg>
+
+    <p>El codigo de la rama en HTML es el siguiente</p>
+
+    <pre>
+ 
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;path d="
+            M 0 0 L 0 -90
+            M 0 -20 L 20 -34
+            M 0 -20 L -20 -34
+            M 0 -40 L 20 -54
+            M 0 -40 L -20 -54
+            M 0 -60 L 20 -74
+            M 0 -60 L -20 -74" 
+            stroke="#E5C39C"
+            stroke-width="5"
+      /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Una vez que definimos una rama, podemos reutilizarla varias veces con el
+      comando USE
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <path
+        id="branch"
+        d="
+            M 0 0 L 0 -90
+            M 0 -20 L 20 -34
+            M 0 -20 L -20 -34
+            M 0 -40 L 20 -54
+            M 0 -40 L -20 -54
+            M 0 -60 L 20 -74
+            M 0 -60 L -20 -74"
+        stroke="#E5C39C"
+        stroke-width="5"
+      />
+
+      <use href="#branch" transform="rotate(60)" />
+      <use href="#branch" transform="rotate(120)" />
+      <use href="#branch" transform="rotate(180)" />
+      <use href="#branch" transform="rotate(240)" />
+      <use href="#branch" transform="rotate(300)" />
+    </svg>
+
+    <p>Este es el resultado final del copo de nieve, el codigo HTML es el siguiente:</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;path
+        id="branch"
+        d="
+            M 0 0 L 0 -90
+            M 0 -20 L 20 -34
+            M 0 -20 L -20 -34
+            M 0 -40 L 20 -54
+            M 0 -40 L -20 -54
+            M 0 -60 L 20 -74
+            M 0 -60 L -20 -74"
+        stroke="#E5C39C"
+        stroke-width="5"
+      /&gt;
+
+      &lt;use href="#branch" transform="rotate(60)" /&gt;
+      &lt;use href="#branch" transform="rotate(120)" /&gt;
+      &lt;use href="#branch" transform="rotate(180)" /&gt;
+      &lt;use href="#branch" transform="rotate(240)" /&gt;
+      &lt;use href="#branch" transform="rotate(300)" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
     <a href="dia6.html"><button>DIA 6</button></a>
     <a href="dia8.html"><button>DIA 8</button></a>
   </body>

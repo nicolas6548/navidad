@@ -7,7 +7,114 @@
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h2>Estrella</h2>
+
+    <h2>
+      Día 6: Cómo utilizar la propiedad de transformacion de elementos SVG
+    </h2>
+
+    <h4>Cómo dibujar una estrella con SVG</h4>
+
+    <p>
+      Una estrella es una forma sencilla. Podríamos definirlo como un grupo de
+      polígonos y establecer cada punto individualmente. Pero entonces
+      tendríamos que conocer cada una de las coordenadas. En lugar de eso,
+      podemos definir sólo un brazo, y luego repetirlo cinco veces con una
+      rotación para obtener la misma forma. Usaremos el transform atributo para
+      establecer una rotación.
+    </p>
+    <p>
+      Primero, definamos un brazo. En este ejemplo, cada brazo consiste en dos
+      polígonos.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </svg>
+
+    <p>El codigo HTML es este</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"/&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"/&gt;
+      &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Podemos agruparlos con un g elemento y rotarlos juntos. Puedes pensar en
+      el g elemento como el div elemento en HTML. Puede contener otros elementos
+      y atributos definidos en el elemento de grupo se aplican a sus hijos.
+    </p>
+    <p>Entonces nosotros rotamos cada brazo en la posición correcta.</p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <g>
+        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+      </g>
+      <g transform="rotate(72)">
+        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+      </g>
+      <g transform="rotate(-72)">
+        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+      </g>
+      <g transform="rotate(144)">
+        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+      </g>
+      <g transform="rotate(-144)">
+        <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+      </g>
+    </svg>
+
+    <p>El codigo HTML es este</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;g&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" /&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" /&gt;
+      &lt;/g&gt;
+      &lt;g transform="rotate(72)"&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" /&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" /&gt;
+      &lt;/g&gt;
+      &lt;g transform="rotate(-72)"&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" /&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" /&gt;
+      &lt;/g&gt;
+      &lt;g transform="rotate(144)"&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" /&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" /&gt;
+      &lt;/g&gt;
+      &lt;g transform="rotate(-144)"&gt;
+        &lt;polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" /&gt;
+        &lt;polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" /&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Usted puede notar que definimos nuestros polígonos para partir del origen
+      del sistema de coordenadas (que es el centro de la imagen). Por defecto,
+      la rotación también está en torno al origen del sistema de coordenadas.
+    </p>
+    <p>
+      Debido a que tenemos cinco brazos, la parte inferior de la imagen es un
+      poco más corta que la parte superior de la imagen. Para centrar la imagen,
+      podemos agrupar a toda la estrella y utilizar el translate transformación
+      para mover todo por 5 unidades a lo largo de las coordenadas Y.
+    </p>
+    <p>
+      En este ejemplo, tuvimos que copiar el código para cada brazo una y otra
+      vez. En el siguiente ejemplo, veremos cómo reutilizar las formas.
+    </p>
+
     <a href="dia5.html"><button>DIA 5</button></a>
     <a href="dia7.html"><button>DIA 7</button></a>
   </body>
