@@ -7,7 +7,117 @@
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h2>Bosque</h2>
+
+    <h2>Día 8: Cómo dibujar un bosque con SVG</h2>
+
+    <p>
+      La rotación no es la única manera en que podemos generar imágenes a partir
+      de formas simples. En este ejemplo, definimos una forma de árbol y luego
+      lo colocamos en varias posiciones en diferentes tamaños para dibujar un
+      bosque.
+    </p>
+    <p>Primero, creamos un fondo de un rectángulo y un círculo.</p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
+
+      <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+    </svg>
+
+    <p>Aca esta el codigo HTML del fondo</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+
+        &lt;rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" /&gt;
+        &lt;circle cx="0" cy="380" r="350" fill="#F8F4E8" /&gt;
+
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Luego definimos una forma de árbol a partir de un simple polígono y una
+      línea
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <polygon points="-10,0 10,0 0,-50" fill="#38755b" />
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" />
+    </svg>
+
+    <p>El código del arbol en HTML es el siguiente</p>
+
+    <pre>
+      &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;polygon points="-10,0 10,0 0,-50" fill="#38755b" /&gt;
+      &lt;line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
+    <p>
+      Esta forma de árbol, sin embargo, no debería aparecer en la interfaz de
+      usuario de esta manera. Podemos esconderlo moviendo todo el árbol hacia el
+      defs Sección. El defs sección es un compartimiento oculto de nuestra
+      imagen. Las cosas aquí no aparecen en la pantalla, pero podemos referirnos
+      a ellas y usarlas más tarde.
+    </p>
+    <p>
+      Entonces, podemos reutilizarlo de manera similar como en el ejemplo del
+      copo de nieve. Envolvemos los dos elementos en un grupo, establecemos un
+      id, y luego reutilizarlo con el use elemento.
+    </p>
+    <p>
+      Aquí, también posicionamos los elementos reutilizados estableciendo un xy
+      y coordine, y usamos el scale transformación para añadir alguna
+      perspectiva a la imagen.
+    </p>
+
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <defs>
+        <g id="tree">
+          <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
+          <line
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="10"
+            stroke="#778074"
+            stroke-width="2"
+          />
+        </g>
+      </defs>
+
+      <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
+      <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+
+      <use href="#tree" x="-30" y="25" transform="scale(2)" />
+      <use href="#tree" x="-20" y="40" transform="scale(1.2)" />
+      <use href="#tree" x="40" y="40" />
+      <use href="#tree" x="50" y="30" transform="scale(1.5)" />
+    </svg>
+
+    <p>El código del arbol en HTML es el siguiente</p>
+
+    <pre>
+    &lt;svg width="200" height="200" viewBox="-100 -100 200 200"&gt;
+      &lt;defs&gt;
+        &lt;g id="tree"&gt;
+          &lt;polygon points="-10,0 10,0 0 -50" fill="#38755b" /&gt;
+          &lt;line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" /&gt;
+      &lt;/g&gt;
+      &lt;/defs&gt;
+
+      &lt;rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" /&gt;
+      &lt;circle cx="0" cy="380" r="350" fill="#F8F4E8" /&gt;
+
+      &lt;use href="#tree" x="-30" y="25" transform="scale(2)" /&gt;
+      &lt;use href="#tree" x="-20" y="40" transform="scale(1.2)" /&gt;
+      &lt;use href="#tree" x="40" y="40" /&gt;
+      &lt;use href="#tree" x="50" y="30" transform="scale(1.5)" /&gt;
+    &lt;/svg&gt;
+    </pre>
+
     <a href="dia7.html"><button>DIA 7</button></a>
     <a href="dia9.html"><button>DIA 9</button></a>
   </body>
